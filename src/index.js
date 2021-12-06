@@ -88,12 +88,11 @@ const transformer = (markdownAST, pluginOptions) => {
   );
 };
 
-export default (
-  { markdownAST, markdownNode: { internal: { type } = {} } = {} },
+module.exports = (  { markdownAST, markdownNode: { internal: { type } = {} } = {} },
   pluginOptions
 ) => {
   return transformer(markdownAST, {
     mdx: type && type.toLowerCase() === "mdx",
     ...pluginOptions,
   });
-};
+}
